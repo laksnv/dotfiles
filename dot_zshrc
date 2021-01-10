@@ -1,0 +1,60 @@
+# Measure boot time
+bootTimeStart=$(gdate +%s%N)
+
+# Load the shell dotfiles, and then some:
+typeset -a source_files
+source_files+="$HOME/.zsh_aliases"
+source_files+="$HOME/.zsh_functions"
+source_files+="/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source_files+="/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+foreach source (`echo $source_files`)
+  if [[ -a $source ]]; then
+    source $source
+  fi
+end
+
+# For Homebrew scripts like git
+export PATH="/usr/local/bin:${PATH}"
+
+# Pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init - --no-rehash)"
+  eval "$(pyenv virtualenv-init - --no-rehash)"
+fi
+
+# Lazy-load NVM: http://broken-by.me/lazy-load-nvm/
+nvm() {
+    unset -f nvm
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    nvm "$@"
+}
+node() {
+    unset -f node
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    node "$@"
+}
+npm() {
+    unset -f npm
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    npm "$@"
+}
+
+# Rbenv
+eval "$(rbenv init --no-rehash -)"
+
+# https://github.com/starship/starship
+eval "$(starship init zsh)"
+
+# Amazon Builder Toolbox
+export PATH=$HOME/.toolbox/bin:$PATH
+
+# Run miniit daily
+mwinit_daily
+
+bootTimeDuration=$((($(gdate +%s%N) - $bootTimeStart)/1000000))
+echo $bootTimeDuration ms overall boot duration
+

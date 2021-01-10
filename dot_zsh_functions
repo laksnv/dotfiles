@@ -1,0 +1,28 @@
+# Amazon Mwinit daily
+function mwinit_daily() {
+    local SSH_CERT=~/.ssh/id_rsa-cert.pub
+    if [[ $(hostname) =~ 'dev-dsk-*' ]]; then
+       local OTP="-o"
+    fi
+    if (! test -f "$SSH_CERT") || (test "`find ~/.ssh/id_rsa-cert.pub -mmin +1220`"); then
+       echo "Midway expired. Please reauthenticate."
+       if mwinit $OTP; then
+            ssh-add -D ~/.ssh/*_rsa
+            ssh-add ~/.ssh/*_rsa
+       else
+            echo "Failed to authenticate. To manually authenticate, run mwinit $OTP."
+       fi
+    fi
+}
+
+exip () {
+    # gather external ip address
+    echo -n "Current External IP: "
+    curl -s -m 5 http://myip.dk | grep "ha4" | sed -e 's/.*ha4">//g' -e 's/<\/span>.*//g'
+}
+
+ips () {
+    # determine local IP address
+    ifconfig | grep "inet " | awk '{ print $2 }'
+}
+

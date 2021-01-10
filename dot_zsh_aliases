@@ -1,0 +1,50 @@
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then # GNU `ls`
+  colorflag="--color"
+else # macOS `ls`
+  colorflag="-G"
+fi
+
+# Navigation
+alias ls="command ls ${colorflag}"
+alias l='ls'
+alias ll='ls -al'
+alias d='cd ~/Desktop'
+alias c='cd /workplace'
+alias cz='chezmoi'
+
+# Helpers
+alias grep='grep --color=auto'
+alias ping='ping -c 5'
+alias df='df -h'
+alias du='du -h -c'
+
+alias bu='brew update; brew upgrade; brew upgrade --cask --greedy; brew cleanup; brew bundle dump --force'
+
+alias dsk='ssh laksn.aka.corp.amazon.com'
+alias ssho='ssh -o ProxyCommand=none'
+
+alias bb='brazil-build'
+alias bbr='bb release'
+alias bbb='bb build'
+alias bbs='bb server'
+alias brc='brazil-recursive-cmd'
+alias bws='brazil ws'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+alias gs='git status'
+alias ga='git add'
+alias gb='git branch'
+alias gc='git commit'
+alias gcam='gc -a -m'
+alias gp='git push'
+alias gpr='git pull --rebase'
+alias gck='git checkout'
+alias grhh='git reset --hard'
+alias gl='git log'
+alias gd='git diff'
+
