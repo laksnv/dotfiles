@@ -12,6 +12,7 @@ alias ll='ls -al'
 alias d='cd ~/Desktop'
 alias c='cd /workplace'
 alias cz='chezmoi'
+alias clr='clear'
 
 # Helpers
 alias grep='grep --color=auto'
