@@ -10,7 +10,7 @@ alias ls="command ls ${colorflag}"
 alias l='ls'
 alias ll='ls -al'
 alias d='cd ~/Desktop'
-alias c='cd /workplace'
+alias c='cd ~/workplace'
 alias cz='chezmoi'
 alias clr='clear'
 
@@ -48,4 +48,5 @@ alias gck='git checkout'
 alias grhh='git reset --hard'
 alias gl='git log'
 alias gd='git diff'
+alias gm='git merge'
 

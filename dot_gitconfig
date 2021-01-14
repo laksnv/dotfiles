@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
-    email = Lakshmi Narasiman
-    name = laksn@amazon.com
+    name = Lakshmi Narasiman
+    email = laksn@amazon.com
 
 [color]
     ui = auto
