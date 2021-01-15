@@ -11,6 +11,7 @@ alias l='ls'
 alias ll='ls -al'
 alias d='cd ~/Desktop'
 alias c='cd ~/workplace'
+alias h='cd ~'
 alias cz='chezmoi'
 alias clr='clear'
 
