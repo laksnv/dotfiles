@@ -38,6 +38,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
+alias g='git'
 alias gs='git status'
 alias ga='git add'
 alias gb='git branch'
@@ -50,4 +51,5 @@ alias grhh='git reset --hard'
 alias gl='git log'
 alias gd='git diff'
 alias gm='git merge'
+alias gri='git rebase -i'
 
