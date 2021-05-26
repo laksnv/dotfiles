@@ -23,6 +23,7 @@ alias du='du -h -c'
 
 alias bu='brew update; brew upgrade; brew upgrade --cask --greedy; brew cleanup; brew bundle dump --force'
 
+alias ha='ssh laksnv@192.168.1.98'
 alias dsk='ssh laksn.aka.corp.amazon.com'
 alias ssho='ssh -o ProxyCommand=none'
 alias cr='cr --description /Users/laksn/workplace/cr-template.md '
