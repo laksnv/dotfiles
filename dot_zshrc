@@ -5,8 +5,8 @@ bootTimeStart=$(gdate +%s%N)
 typeset -a source_files
 source_files+="$HOME/.zsh_aliases"
 source_files+="$HOME/.zsh_functions"
-source_files+="/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source_files+="/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source_files+="/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source_files+="/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 foreach source (`echo $source_files`)
   if [[ -a $source ]]; then
